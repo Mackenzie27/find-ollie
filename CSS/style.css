@@ -1,6 +1,6 @@
 html {
   min-height: 100%;
-  background-image: url(.images/background-sky-grass.jpg);
+  background-image: url(../images/background-sky-grass.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -11,30 +11,37 @@ a {
   color: white;
 }
 
+p, h1 {
+  color: #555;;
+}
+
 .border-box {
-  border: solid black 3px;
+  border: solid white 3px;
   width: 90%;
-  height: 90%;
+  height: 470px;
   margin: 5%;
+  background: rgba(255, 255, 255, 0.3)
 }
 
 .intro-text {
+  margin: none;
+  padding: 140px 0px 0px 60px;
   text-align: left;
+  line-height: 1.3em;
 }
-
 
 #next-page-button {
   color: white;
   background-color: rgb(116, 184, 229);
   padding: 10px;
   border: none;
-  border-radius: 7%;
+  border-radius: 5%;
 
 }
 
   /* Second page */
 
-.card, .card-ollie {
+#card-carrot-1, #card-carrot-2, #card-carrot-3, #card-carrot-4, #card-carrot-5, #card-carrot-6, #card-carrot-7, #card-ollie {
   height: 200px;
   width: 150px;
   background-color: rgb(222, 235, 247);
@@ -44,11 +51,12 @@ a {
   text-align:center;
 }
 
-.card-ollie {
+#card-ollie {
 background-color:rgb(222, 235, 220);
 }
 
 #card-container {
+  margin: auto;
   max-width: 80%;
   display: flex;
   flex-flow: row wrap;
@@ -71,12 +79,15 @@ background-color:rgb(222, 235, 220);
 }
 
 .pg-2-bottom-nav {
+  margin: auto;
+  max-width: 80%;
   display: flex;
   justify-content: space-evenly;
-  max-width: 80%;
+  align-content: center; 
+  
 }
 
-.pg-2-buttons {
+#pg-2-play-button, #pg-2-pause-button {
   width: 70px;
   color: white;
   background-color: rgb(116, 184, 229);
