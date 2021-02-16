@@ -1,3 +1,5 @@
+/* GLOBAL STYLES */
+
 html {
   min-height: 100%;
   background-image: url(../images/background-sky-grass.jpg);
@@ -12,8 +14,11 @@ a {
 }
 
 p, h1 {
-  color: #555;;
+  color: #555;
 }
+
+
+/* PAGE 1 STYLES */
 
 .border-box {
   border: solid white 3px;
@@ -36,10 +41,13 @@ p, h1 {
   padding: 10px;
   border: none;
   border-radius: 5%;
-
 }
 
-  /* Second page */
+#next-page-button:hover {
+  background-color: #555;
+  }
+
+  /* PAGE 2 STYLES */
 
 #card-carrot-1, #card-carrot-2, #card-carrot-3, #card-carrot-4, #card-carrot-5, #card-carrot-6, #card-carrot-7, #card-ollie {
   height: 200px;
@@ -91,9 +99,13 @@ background-color:rgb(222, 235, 220);
   width: 70px;
   color: white;
   background-color: rgb(116, 184, 229);
-  padding: 10px 10px;
+  padding: 5px 10px;
   border: none;
   border-radius: 7%;
   text-transform: uppercase;
   text-align: center;
+}
+
+#instructions-text {
+  padding: 0px 40px;
 }
