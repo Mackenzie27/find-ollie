@@ -10,53 +10,103 @@ function getRandomNumber() {
     return x;
     }
 
-let randomNum = getRandomNumber();
+
+let randomNumber = getRandomNumber();
 
 
 function startShuffle() { 
 
-    if (randomNum === 1) {
-         // # = 1, then highlight card-ollie
-        var firstdiv = document.getElementById("card-ollie");//.src = this.card-ollie;   
+    if (randomNumber === 1) {
+         // # = 1, then then Ollie goes to card-ollie
+        var firstdiv = document.getElementById("card-ollie"); 
     }
-    else if (getRandomNumber() === 2) {
-        // if # = 2, then highlight card-carrot-1
+    else if (randomNumber === 2) {
+        // if # = 2, then Ollie goes to card-carrot-1
         
         //change the div class to ollieC, remove the class carrot
         //change the src of the img to ollie, change the class to card-face-ollie
 
-        var secondDiv = document.getElementById("card-carrot-1");//.src = this.card-ollie; 
-        secondDiv.classList.add("ollieC");
-        secondDiv.classList.remove("carrotC");
+        var secondDiv = document.getElementById("card-carrot-1");
+        secondDiv.classList.add("ollieCard");
+        secondDiv.classList.remove("carrotCard");
 
         //access the children of secondDiv
         secondDiv.children.src = "./Images/ollie.png";
         secondDiv.children.classList.add("card-face-ollie");
         secondDiv.children.classList.remove("card-face-carrot");
     }
-    else if getRandomNumber = 3 {
-        // if # = 3, then highlight card-carrot-2
-        document.getElementById(this.card-carrot-2).src = this.card-ollie; 
+    else if (randomNumber === 3) {
+        // if # = 3, then then Ollie goes to card-carrot-2
+       
+        var thirdDiv = document.getElementById("card-carrot-2");
+        thirdDiv.classList.add("ollieCard");
+        thirdDiv.classList.remove("carrotCard");
+
+        //access the children of thirdDiv
+        thirdDiv.children.src = "./Images/ollie.png";
+        thirdDiv.children.classList.add("card-face-ollie");
+        thirdDiv.children.classList.remove("card-face-carrot");
+        
     }
-    else if getRandomNumber = 4 {
-        // if # = 4, then highlight card-carrot-3
-        document.getElementById(this.card-carrot-3).src = this.card-ollie; 
+    else if (randomNumber === 4) {
+        // if # = 4, then then Ollie goes to card-carrot-3
+
+        var fourthDiv = document.getElementById("card-carrot-3");
+        fourthDiv.classList.add("ollieCard");
+        fourthDiv.classList.remove("carrotCard");
+
+        //access the children of fourthDiv
+        fourthDiv.children.src = "./Images/ollie.png";
+        fourthDiv.children.classList.add("card-face-ollie");
+        fourthDiv.children.classList.remove("card-face-carrot");
     }
-    else if getRandomNumber = 5 {
-        // if # = 5, then highlight card-carrot-4
-        document.getElementById(this.card-carrot-4).src = this.card-ollie; 
+    else if (randomNumber === 5) {
+        // if # = 5, then then Ollie goes to card-carrot-4
+
+        var fifthDiv = document.getElementById("card-carrot-4");
+        fifthDiv.classList.add("ollieCard");
+        fifthDiv.classList.remove("carrotCard");
+
+        //access the children of fifthDiv
+        fifthDiv.children.src = "./Images/ollie.png";
+        fifthDiv.children.classList.add("card-face-ollie");
+        fifthDiv.children.classList.remove("card-face-carrot");
     }
-    else if getRandomNumber = 6 {
-        // if # = 6, then highlight card-carrot-5
-        document.getElementById(this.card-carrot-5).src = this.card-ollie; 
+    else if (randomNumber === 6) {
+        // if # = 6, then then Ollie goes to card-carrot-5
+
+        var sixthDiv = document.getElementById("card-carrot-5");
+        sixthDiv.classList.add("ollieCard");
+        sixthDiv.classList.remove("carrotCard");
+
+        //access the children of sixthDiv
+        sixthDiv.children.src = "./Images/ollie.png";
+        sixthDiv.children.classList.add("card-face-ollie");
+        sixthDiv.children.classList.remove("card-face-carrot");
     }
-    else if getRandomNumber = 7 {
-        // if # = 7, then highlight card-carrot-6
-        document.getElementById(this.card-carrot-6).src = this.card-ollie; 
+    else if (randomNumber === 7) {
+        // if # = 7, then then Ollie goes to card-carrot-6
+
+        var seventhDiv = document.getElementById("card-carrot-6");
+        seventhDiv.classList.add("ollieCard");
+        seventhDiv.classList.remove("carrotCard");
+
+        //access the children of seventhDiv
+        seventhDiv.children.src = "./Images/ollie.png";
+        seventhDiv.children.classList.add("card-face-ollie");
+        seventhDiv.children.classList.remove("card-face-carrot");
     }
-    else if getRandomNumber = 8 {
-        // if # = 8, then highlight card-carrot-7
-        document.getElementById(this.card-carrot-7).src = this.card-ollie; 
+    else if (randomNumber === 8) {
+        // if # = 8, then then Ollie goes to card-carrot-7
+
+        var eighthDiv = document.getElementById("card-carrot-7");
+        eighthDiv.classList.add("ollieCard");
+        eighthDiv.classList.remove("carrotCard");
+
+        //access the children of eighthDiv
+        eighthDiv.children.src = "./Images/ollie.png";
+        eighthDiv.children.classList.add("card-face-ollie");
+        eighthDiv.children.classList.remove("card-face-carrot");
     }
 }
 
@@ -84,8 +134,8 @@ function pauseShuffle() {
 
 //if clicked correctly, replace #"instructions-text" with:
 
-document.getElementById("instructions-text").innerHTML = "You found Ollie! He'll love your cuddles.";
+// document.getElementById("instructions-text").innerHTML = "You found Ollie! He'll love your cuddles.";
 
 // If clicked incorrectly, replace #"instructions-text" with:
 
-document.getElementById("instructions-text").innerHTML = "Ollie's somewhere else. Keep looking!";
+// document.getElementById("instructions-text").innerHTML = "Ollie's somewhere else. Keep looking!";
