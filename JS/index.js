@@ -1,5 +1,4 @@
 // TO DO: 
-// - When Ollie is showing, use clicking on him as a trigger for "Play"
 // - Hide Ollie when he's done jumping
 // - Restrict clicking the "Play" button only once during play --> document.getElementById("pg-2-play-button").disabled = true;
 
@@ -12,7 +11,13 @@ document
   .addEventListener("click", handleStart);
 
 
-  // this function should return a number between 
+// When Ollie is showing, use clicking on him as a trigger for "Play"
+
+document
+  .querySelector(".ollieCard")
+  .addEventListener("click", handleStart);
+
+
 function getRandomNumber() {
   var x = Math.floor(Math.random() * 8 + 1);
   return x;
@@ -53,11 +58,11 @@ function handleStart() {
   console.log("start")
   const interval = setInterval(()=>{
     shuffle()
+    console.log(time)
     time++;
     if(time > 20) {
     hideOllieAfterShuffle()
     clearInterval(interval)
-    //renable the playbutton
   }
   },200)
 }
@@ -69,10 +74,16 @@ function reenablePlayButton() {
 }
 
 function hideOllieAfterShuffle() {
-  var ollie = document.getElementById("card-carrot-0");
-  ollie.classList.toggle("card-carrot-1");
+  var ollie = document.querySelector(".ollieCard");  
+  // ollie.classList.toggle(".carrotCard");
+  // ollie.classList.toggle("card-carrot-1")
+  ollie.classList.toogle("")
   reenablePlayButton();
 }
+
+// compating a querySelector with a ClassList --> Not the same object. 
+// Infinite loop. Is it coming from the reenable play button by activating or "pushing" the play button?
+
 
 // #2: CHANGE INSTRUCTION TEXT WHEN GUESSED CORRECTLY OR INCORRECTLY
 
