@@ -42,9 +42,6 @@ function shuffle() {
   // wait a bit ...
   // then hide the rabbit
   // then call startShuffle again
-  // hint : this is either 1 OR 3 lines of code
-  // setInterval function??
-  // callbacks? 
 }
 
 function handleStart(params) {
@@ -64,17 +61,6 @@ function hideOllieAfterShuffle() {
   var ollie = document.getElementById("card-carrot-0");
   ollie.classList.toggle("card-carrot-1");
   return hideOllieAfterShuffle;
-}
-
-// Set time interval for Pause Shuffle - DELETE??
-
-document
-  .getElementById("pg-2-pause-button")
-  .addEventListener("click", pauseShuffle);
-
-function pauseShuffle() {
-  setTimeout(startShuffle(), 0);
-  return setTimeout;
 }
 
 // #2: CHANGE INSTRUCTION TEXT WHEN GUESSED CORRECTLY OR INCORRECTLY

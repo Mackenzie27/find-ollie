@@ -17,7 +17,6 @@ p, h1 {
   color: #555;
 }
 
-
 /* PAGE 1 STYLES */
 
 .border-box {
@@ -41,10 +40,12 @@ p, h1 {
   padding: 10px;
   border: none;
   border-radius: 5%;
+  cursor: pointer;
 }
 
 #next-page-button:hover {
   background-color: #555;
+  cursor: pointer;
   }
 
   /* PAGE 2 STYLES */
@@ -58,6 +59,7 @@ p, h1 {
   box-shadow: 0px 2px 12px 0px #888888;
   border-radius: 4%;
   text-align:center;
+  cursor: pointer;
 }
 
 .ollieCard {
@@ -90,12 +92,11 @@ p, h1 {
   margin: auto;
   max-width: 80%;
   display: flex;
-  justify-content: space-evenly;
-  align-content: center; 
+  justify-content: center;
   
 }
 
-#pg-2-play-button, #pg-2-pause-button {
+#pg-2-play-button {
   width: 70px;
   color: white;
   background-color: rgb(116, 184, 229);
@@ -104,6 +105,7 @@ p, h1 {
   border-radius: 7%;
   text-transform: uppercase;
   text-align: center;
+  cursor: pointer;
 }
 
 #instructions-text {
