@@ -1,3 +1,8 @@
+// TO DO: 
+// - When Ollie is showing, use clicking on him as a trigger for "Play"
+// - Hide Ollie when he's done jumping
+// - Restrict clicking the "Play" button only once during play --> document.getElementById("pg-2-play-button").disabled = true;
+
 // #1: SET RANDOM CHOICE AND CHANGE CARD ACCORDINGLY
 
 // Start Shuffle
@@ -21,7 +26,7 @@ function shuffle() {
 
   previousRabbitImage.classList.replace("card-face-ollie", "card-face-carrot");
   previousRabbitParentDiv.classList.replace("ollieCard", "carrotCard");
-  previousRabbitImage.src = "./../Images/single-carrot.png";
+  previousRabbitImage.src = "../Images/single-carrot.png";
 
   let randomNumber = getRandomNumber();
   // if # = 2, then Ollie goes to card-carrot-1
@@ -38,29 +43,35 @@ function shuffle() {
   img.src = "./Images/ollie.png";
   img.classList.add("card-face-ollie");
   img.classList.remove("card-face-carrot");
-
-  // wait a bit ...
-  // then hide the rabbit
-  // then call startShuffle again
-}
-
-function handleStart(params) {
-  let time = 0
-  const interval = setInterval(()=>{
-    shuffle()
-    time++;
-  if(time > 4000/200)clearInterval(interval)
-  },200)
+  document.getElementById("pg-2-play-button").disabled = true;
 }
 
 // Set time interval for Start Shuffle
 
+function handleStart() {
+  let time = 0
+  console.log("start")
+  const interval = setInterval(()=>{
+    shuffle()
+    time++;
+    if(time > 20) {
+    hideOllieAfterShuffle()
+    clearInterval(interval)
+    //renable the playbutton
+  }
+  },200)
+}
+
 // After shuffle, hide Ollie.
+
+function reenablePlayButton() {
+  document.getElementById("pg-2-play-button").disabled = false;
+}
 
 function hideOllieAfterShuffle() {
   var ollie = document.getElementById("card-carrot-0");
   ollie.classList.toggle("card-carrot-1");
-  return hideOllieAfterShuffle;
+  reenablePlayButton();
 }
 
 // #2: CHANGE INSTRUCTION TEXT WHEN GUESSED CORRECTLY OR INCORRECTLY
@@ -68,7 +79,7 @@ function hideOllieAfterShuffle() {
 function guessLogicInstructions() {
 
   let guessedCorrectly = document.getElementById("carrot-card-0");
-  let guessedIncorrectly = document.querySelector("img.card-face-ollie");
+  let guessedIncorrectly = document.querySelector("img.card-face-carrot");
 
   if (guessedCorrectly) {
     //if clicked correctly, replace #"instructions-text" with:
@@ -80,6 +91,6 @@ function guessLogicInstructions() {
   } {
     
   }
-
-  return guessLogicInstructions;
 }
+
+//guessLogicInstructions();
