@@ -49,7 +49,8 @@ p, h1 {
 
   /* PAGE 2 STYLES */
 
-#card-carrot-1, #card-carrot-2, #card-carrot-3, #card-carrot-4, #card-carrot-5, #card-carrot-6, #card-carrot-7, #card-ollie {
+
+#card-carrot-0, #card-carrot-1, #card-carrot-2, #card-carrot-3, #card-carrot-4, #card-carrot-5, #card-carrot-6, #card-carrot-7 {
   height: 200px;
   width: 150px;
   background-color: rgb(222, 235, 247);
@@ -59,8 +60,8 @@ p, h1 {
   text-align:center;
 }
 
-#card-ollie {
-background-color:rgb(222, 235, 220);
+.ollieCard {
+  background-color:rgb(222, 235, 220) !important;
 }
 
 #card-container {
@@ -79,10 +80,9 @@ background-color:rgb(222, 235, 220);
 }
 
 .card-face-carrot {
-  max-height: 80px;
+  max-height: 160px;
   text-align: center;
-  margin: 55px 0px 0px 0px;
-  transform:rotate(76deg);
+  margin: 20px 0px 0px 0px;
   filter: drop-shadow(0.15rem 0.15rem 0.2rem rgba(0, 0, 0, 0.3));
 }
 
