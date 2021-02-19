@@ -45,7 +45,7 @@ function shuffle() {
   anyDiv.classList.add("ollieCard");
   anyDiv.classList.remove("carrotCard");
   //access the children of secondDiv
-  img.src = "./Images/ollie.png";
+  img.src = "./images/ollie.png";
   img.classList.add("card-face-ollie");
   img.classList.remove("card-face-carrot");
   document.getElementById("pg-2-play-button").disabled = true;
