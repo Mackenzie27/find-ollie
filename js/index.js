@@ -1,4 +1,4 @@
-// TO DO: 
+// TO DO:
 // - Hide Ollie when he's done jumping
 // - Restrict clicking the "Play" button only once during play --> document.getElementById("pg-2-play-button").disabled = true;
 
@@ -10,34 +10,29 @@ document
   .getElementById("pg-2-play-button")
   .addEventListener("click", handleStart);
 
-
 // When Ollie is showing, use clicking on him as a trigger for "Play"
 
-document
-  .querySelector(".ollieCard")
-  .addEventListener("click", handleStart);
-
+document.querySelector(".ollieCard").addEventListener("click", handleStart);
 
 function getRandomNumber() {
   var x = Math.floor(Math.random() * 8 + 1);
   return x;
 }
 
-
 function shuffle() {
-
   let previousRabbitImage = document.querySelector("img.card-face-ollie");
+  if (previousRabbitImage === null) return;
   let previousRabbitParentDiv = previousRabbitImage.parentElement;
 
   previousRabbitImage.classList.replace("card-face-ollie", "card-face-carrot");
   previousRabbitParentDiv.classList.replace("ollieCard", "carrotCard");
-  previousRabbitImage.src = "../Images/single-carrot.png";
+  previousRabbitImage.src = "../images/single-carrot.png";
 
   let randomNumber = getRandomNumber();
   // if # = 2, then Ollie goes to card-carrot-1
   //change the div class to ollieC, remove the class carrot
   //change the src of the img to ollie, change the class to card-face-ollie
-  var anyDiv = document.getElementById("card-carrot-" + (randomNumber-1));
+  var anyDiv = document.getElementById("card-carrot-" + (randomNumber - 1));
   // console.log("#card-carrot-" + (randomNumber-1) + " img");
   // const img2 = document.querySelector("#card-carrot-" + (randomNumber-1) + " img");
   const img = anyDiv.querySelector("img");
@@ -54,17 +49,16 @@ function shuffle() {
 // Set time interval for Start Shuffle
 
 function handleStart() {
-  let time = 0
-  console.log("start")
-  const interval = setInterval(()=>{
-    shuffle()
-    console.log(time)
+  let time = 0;
+  const interval = setInterval(() => {
+    shuffle();
     time++;
-    if(time > 20) {
-    hideOllieAfterShuffle()
-    clearInterval(interval)
-  }
-  },200)
+    if (time > 20) {
+      clearInterval(interval);
+      hideOllieAfterShuffle();
+      checkPlayerAnswer();
+    }
+  }, 200);
 }
 
 // After shuffle, hide Ollie.
@@ -73,36 +67,63 @@ function reenablePlayButton() {
   document.getElementById("pg-2-play-button").disabled = false;
 }
 
+/**
+ * @description should find ollie card and change its ccs class while chnaging the child image src back to a carrot
+ * @returns {undefined}
+ */
 function hideOllieAfterShuffle() {
-  var ollie = document.querySelector(".ollieCard");  
-  // infinite loop: ollie.classList.toogle("carrotCard")
-  // no infinite loop: ollie.classList.toggle(".carrotCard");
-  // no infinite loop: ollie.classList.toggle("card-carrot-1")
-  // infinite loop: ollie.classList.toogle("img.card-face-carrot");
-  // infinite loop: ollie.classList.toogle(".card-face-carrot");
-  reenablePlayButton();
+  let ollie = document.querySelector(".ollieCard");
+  if (ollie === null) return;
+  ollie.setAttribute("data-correct-answer", "here");
+  // select the image too
+  let image = ollie.querySelector("img");
+  // change the image's source
+  image.src = "../images/single-carrot.png";
+  // repace the div's css class
+  image.classList.replace("card-face-ollie", "card-face-carrot");
+  ollie.classList.replace("ollieCard", "carrotCard");
 }
 
-// comparing a querySelector with a ClassList --> Not the same object. 
-// Infinite loop. Is it coming from the reenable play button by activating or "pushing" the play button?
+function checkClickedCard(event) {
+  const card = event.target;
+  let correctCardAttribute = card.getAttribute("data-correct-answer");
+  // si l'attribute de la carte courante contient here, c'est la bonne carte
+  if (correctCardAttribute === "here") {
+    displayText(true);
+    revealOllie();
+    reenablePlayButton();
+  } else {
+    displayText(false);
+  }
 
+}
+
+function revealOllie() {
+  // find the card with data-correct-answer
+  // replace the div class
+  // replace the image class
+  // change the image source
+}
+
+function checkPlayerAnswer() {
+  const cards = document.querySelectorAll(".carrotCard");
+  // console.log(cards);
+  cards.forEach(function (card) {
+    card.addEventListener("click", checkClickedCard);
+  });
+}
 
 // #2: CHANGE INSTRUCTION TEXT WHEN GUESSED CORRECTLY OR INCORRECTLY
 
-function guessLogicInstructions() {
-
-  let guessedCorrectly = document.getElementById("carrot-card-0");
-  let guessedIncorrectly = document.querySelector("img.card-face-carrot");
-
-  if (guessedCorrectly) {
+function displayText(result) {
+if (result === true) {
     //if clicked correctly, replace #"instructions-text" with:
-    document.getElementById("instructions-text").innerHTML = "You found Ollie! He'll love your cuddles.";
-    
-  } if (guessedIncorrectly) {
+    document.getElementById("instructions-text").innerHTML =
+      "You found Ollie! He'll love your cuddles.";
+  } else {
     // If clicked incorrectly, replace #"instructions-text" with:
-    document.getElementById("instructions-text").innerHTML = "Ollie's somewhere else. Keep looking!";
-  } {
-    
+    document.getElementById("instructions-text").innerHTML =
+      "Ollie's somewhere else. Keep looking!";
   }
 }
 
