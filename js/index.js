@@ -94,15 +94,28 @@ function checkClickedCard(event) {
     reenablePlayButton();
   } else {
     displayText(false);
+    revealOllie();
+    reenablePlayButton();
   }
 
 }
 
 function revealOllie() {
+  let ollieBunny = document.querySelector(".ollieCard");
+
   // find the card with data-correct-answer
+  let correctCardAttribute = card.getAttribute("data-correct-answer");
+
+  if (correctCardAttribute === "here") {
   // replace the div class
+  ollieBunny.classList.replace("carrotCard", "ollieCard");
+
   // replace the image class
+  image.classList.replace("card-face-carrot", "card-face-ollie");
+  
   // change the image source
+  image.src = "../images/ollie.png";
+  }
 }
 
 function checkPlayerAnswer() {
@@ -115,8 +128,9 @@ function checkPlayerAnswer() {
 
 // #2: CHANGE INSTRUCTION TEXT WHEN GUESSED CORRECTLY OR INCORRECTLY
 
-function displayText(result) {
-if (result === true) {
+function displayText() {
+  let result = card.getAttribute("data-correct-answer");
+  if (correctCardAttribute === "here") {
     //if clicked correctly, replace #"instructions-text" with:
     document.getElementById("instructions-text").innerHTML =
       "You found Ollie! He'll love your cuddles.";
@@ -126,5 +140,3 @@ if (result === true) {
       "Ollie's somewhere else. Keep looking!";
   }
 }
-
-//guessLogicInstructions();
