@@ -1,5 +1,5 @@
 /* GLOBAL STYLES */
-
+/* : ) */
 html {
   min-height: 100%;
   background-image: url(../images/background-sky-grass.jpg);
@@ -35,6 +35,16 @@ p, h1 {
   padding: 140px 0px 0px 60px;
   text-align: left;
   line-height: 1.3em;
+}
+
+#ollie-photo-pg-1 {
+  max-width: 250px;
+  padding: 100px 40px 0px 0px;
+}
+
+#pg-1-container {
+  display: flex;
+  flex-flow: row;
 }
 
 #next-page-button {

@@ -75,13 +75,15 @@ function reenablePlayButton() {
 
 function hideOllieAfterShuffle() {
   var ollie = document.querySelector(".ollieCard");  
-  // ollie.classList.toggle(".carrotCard");
-  // ollie.classList.toggle("card-carrot-1")
-  ollie.classList.toogle("")
+  // infinite loop: ollie.classList.toogle("carrotCard")
+  // no infinite loop: ollie.classList.toggle(".carrotCard");
+  // no infinite loop: ollie.classList.toggle("card-carrot-1")
+  // infinite loop: ollie.classList.toogle("img.card-face-carrot");
+  // infinite loop: ollie.classList.toogle(".card-face-carrot");
   reenablePlayButton();
 }
 
-// compating a querySelector with a ClassList --> Not the same object. 
+// comparing a querySelector with a ClassList --> Not the same object. 
 // Infinite loop. Is it coming from the reenable play button by activating or "pushing" the play button?
 
 
